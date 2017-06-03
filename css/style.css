@@ -1,0 +1,20 @@
+.loading {
+	position: relative;
+}
+
+.loading:after {
+	content: "";
+	z-index: 10;
+	display: block;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+	background-image: url("../img/loading.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	cursor: not-allowed
+}
