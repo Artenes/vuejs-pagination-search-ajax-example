@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Pagination with Vue.js</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- App's style -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="jumbotron">
+					<h1>Pagination and search with Vue.js</h1>
+					<p>This example doesn't use a build tool like backpack. It is meant to be simple and ready to use.</p>
+					<p>While you type in the search box, the text is sent through ajax to the REST API</p>
+					<p>Every time you navigate to a new page, a new ajax request is made to the REST API</p>
+				</div>
+			</div>	
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div id="app" class="loading">
+
+					<div class="row">
+						<div class="col-md-12">
+							<search-user @search-user="searchUser"></search-user>
+						</div>
+					</div>
+
+					<br>
+
+					<!-- Vue component where the user data will be show -->
+					<result-table :users="users" :pagination="pagination" :loading="loading" @go-to-page="goToPage"></result-table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- External Dependecies -->
+	
+	<!-- Axios, library to make http requests -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- Vue, library to manipulate the DOM -->
+	<script type="text/javascript" src="https://unpkg.com/vue"></script>
+
+	<!-- Internal Dependecies -->
+
+	<!-- User repository from where we will get our users -->
+	<script type="text/javascript" src="js/repository/user-repository.js"></script>
+	<!-- A Vue component where we will show our users -->
+	<script type="text/javascript" src="js/components/search-component.js"></script>
+	<!-- A Vue component where we will type an id to find a user -->
+	<script type="text/javascript" src="js/components/table-component.js"></script>
+	<!-- The main Vue instance that will manage all the work -->
+	<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
